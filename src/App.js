@@ -4,23 +4,34 @@ import React from "react";
 import Webcam from "react-webcam";
 import ReactDOM from 'react-dom/client';
 import { useState } from 'react';
+import frame from './assets/frame.png'
+import photostrip from './assets/photostrip.png'
+import photobooth from './assets/photobooth.png'
+import miffy from './assets/miffy.png'
+
 var filter = "color";
+
 
 function App() {
   return (
-    <div className="App">
-        
-      <div>
+    <div class="App">
+        <div class="toprow">
+          <img class="photoboothtext" src = {photobooth}></img>
+            <img  class="miffy" src = {miffy}></img>
+        </div>
+        <div class="midsection">
+          <div class="camframe">
+            <img class="photoframe" src = {frame}></img>
+            <WebcamCapture > </WebcamCapture>
+          </div>
+
+        </div>
         <button onClick={updateFilter("bw")}>b&w</button>
-        <button onClick={updateFilter("blue")}>blue</button>
         <button onClick={updateFilter("color")}>color</button>
-        <WebcamCapture />
-        
-      </div>
+        <p id="countingdown">3</p>
     </div>
   );
 }
-//3 times, count down from 3 then take photo
 function updateFilter(fil){
   filter = fil;
 }
@@ -66,22 +77,38 @@ const WebcamCapture = () => {
 
   return (
     <>
-      <div className="webcamholder"></div>
-      <Webcam
+    <div className="photobooth">
+      <div className="camera-box">
+      <Webcam 
+        class="webcam"
         audio={false}
         ref={webcamRef}
-        
-
         screenshotFormat="image/jpeg"
       />
+      </div>
+      <div id="photo-strip">
 
-      <p id="countingdown">3</p>
-        <img id = "photo1" src = {imgSrc1} />
+
+        <div class="photo-slot">
+          <img id = "photo1" src = {imgSrc1} />
+        </div>
+
+        <div class="photo-slot">
         <img id = "photo2" src = {imgSrc2} />
-        <img id = "photo3" src = {imgSrc3} />
-        <img id = "photo4" src = {imgSrc4} />
-      <button onClick={gogogo}>Start!</button>
+        </div>
 
+        <div class="photo-slot">
+        <img id = "photo3" src = {imgSrc3} />
+        </div>
+
+        <div class="photo-slot">
+        <img id = "photo4" src = {imgSrc4} />
+        </div>
+
+      </div>
+      </div>
+      <button class="startbutton" onClick={gogogo}>Start!</button>
+      
     </>
   );
 
