@@ -1,20 +1,17 @@
 {
   "files": {
     "main.css": "/photobooth/static/css/main.faf101f1.css",
-    "main.js": "/photobooth/static/js/main.41a3ff12.js",
+    "main.js": "/photobooth/static/js/main.42cfb4b6.js",
     "static/js/453.117b0875.chunk.js": "/photobooth/static/js/453.117b0875.chunk.js",
-    "static/media/frame.png": "/photobooth/static/media/frame.1c92144c564e6ca18cec.png",
     "static/media/background.png": "/photobooth/static/media/background.8c65ae1cad2c2fe71c7f.png",
-    "static/media/miffy.png": "/photobooth/static/media/miffy.2646e703b2e5ba8194f2.png",
-    "static/media/photobooth.png": "/photobooth/static/media/photobooth.b4da5205099dd862be51.png",
     "static/media/logo.svg": "/photobooth/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/photobooth/index.html",
     "main.faf101f1.css.map": "/photobooth/static/css/main.faf101f1.css.map",
-    "main.41a3ff12.js.map": "/photobooth/static/js/main.41a3ff12.js.map",
+    "main.42cfb4b6.js.map": "/photobooth/static/js/main.42cfb4b6.js.map",
     "453.117b0875.chunk.js.map": "/photobooth/static/js/453.117b0875.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.faf101f1.css",
-    "static/js/main.41a3ff12.js"
+    "static/js/main.42cfb4b6.js"
   ]
 }
