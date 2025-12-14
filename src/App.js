@@ -1,3 +1,5 @@
+import { BrowserRouter } from 'react-router-dom';
+
 import logo from './logo.svg';
 import './App.css';
 import React, { useImperativeHandle } from "react";
@@ -18,6 +20,8 @@ function App() {
   //creates ref
   const captureRef = React.useRef(null); 
   return (
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+
     <div class="App">
         <div class="toprow">
           <img class="photoboothtext" src = {photobooth}></img>
@@ -40,9 +44,10 @@ function App() {
         </div>
         
     </div>
+    </BrowserRouter>
+
   );
 }
-
 function updateFilter(fil){
   filter = fil;
 }
