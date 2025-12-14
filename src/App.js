@@ -5,7 +5,6 @@ import Webcam from "react-webcam";
 import ReactDOM from 'react-dom/client';
 import { useState } from 'react';
 import frame from './assets/frame.png'
-import photostrip from './assets/photostrip.png'
 import photobooth from './assets/photobooth.png'
 import miffy from './assets/miffy.png'
 
@@ -22,13 +21,12 @@ function App() {
     <div class="App">
         <div class="toprow">
           <img class="photoboothtext" src = {photobooth}></img>
-            <img  class="miffy" src = {miffy}></img>
         </div>
         <div class="midsection">
           <div class="camframe">
             <img class="photoframe" src = {frame}></img>
             <WebcamCapture ref={captureRef} setImgSrc1={setImgSrc1} setImgSrc2={setImgSrc2} setImgSrc3={setImgSrc3} > </WebcamCapture>
-            <p id="countingdown">3</p>
+            
           </div>
           <div class="photo-strip">
             <div class="photo-slot"><img id = "photo1" src = {imgSrc1} /></div>
@@ -38,8 +36,7 @@ function App() {
         </div>
         <div class="bottom">
           <button class="startbutton" onClick={() => captureRef.current.startCapture()}>Start!</button>
-          <button class ="bw" onClick={updateFilter("bw")}>b&w</button>
-          <button class="color" onClick={updateFilter("color")}>color</button>
+          
         </div>
         
     </div>
@@ -72,17 +69,25 @@ const WebcamCapture = React.forwardRef((props, ref) => {
     }
 
     const countDown = () => {
+      
       return new Promise(resolve => {
       let count = 4;
+      const countdownEl = document.getElementById("countingdown");
+      
+
       console.log(count);
       
       const timer = setInterval(() => {
         count--;
+        countdownEl.style.visibility = "visible";
           document.getElementById("countingdown").innerHTML = count.toString();
 
         if(count===0){
           clearInterval(timer);
+          countdownEl.style.visibility = "hidden";
+          
           resolve();
+    
         }
       }, 1000);
       }); 
@@ -95,13 +100,16 @@ const WebcamCapture = React.forwardRef((props, ref) => {
     <>
     <div className="photobooth">
       <div className="camera-box">
-      <Webcam 
-        class="webcam"
-        audio={false}
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-      />
+        <Webcam 
+          class="webcam"
+          audio={false}
+          ref={webcamRef}
+          screenshotFormat="image/jpeg"
+        />
+        <p id="countingdown">3</p>
+      
       </div>
+      
       
       </div>
       
